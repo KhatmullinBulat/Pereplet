@@ -1,94 +1,63 @@
-# Nuxt Launchpad
+# 📚 Pereplet (Переплёт)
 
-[![MIT License][license-shield]][license-url]
+Поиск книг по базе данных **Open Library** с удобным интерфейсом на базе **Nuxt 4**. Проект создан с использованием собственного инструмента для быстрой разработки — [create-nuxt-launchpad](https://www.npmjs.com/package/create-nuxt-launchpad).
 
-A foundational **Nuxt 4** project template designed for seamless integration with **FSD-like architecture** and efficient CRUD operations.
-
----
-
-## Features
-
-- **FSD-ready**: Structured to support Feature-Sliced Design principles for scalable applications.
-- **CRUD**: Includes `useApiFactory` composable for generating standardized CRUD Api services.
-- **ESLINT Antfu**: Сonfigured with `@antfu/eslint-config` and Nuxt ESLint integration for clean, consistent, and modern code style.
-- **Type Safety**: Leverages TypeScript for robust type checking throughout the application.
-- **Nuxt 4**: Built on the latest Nuxt framework features and best practices.
+![Nuxt](https://img.shields.io/badge/Nuxt-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white)
+![Vue](https://img.shields.io/badge/Vue-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![Open Library](https://img.shields.io/badge/OpenLibrary-FF6B00?style=for-the-badge&logo=openlibrary&logoColor=white)
 
 ---
 
-## Project Structure (FSD-inspired)
+## 🌟 Особенности
 
-- `pages/` — Nuxt routes
-- `layouts/` — Nuxt layouts
-- `widgets/` — page-level building blocks
-- `entities/` — business entities
-- `shared/` — global types, assets, composables, scripts
-
----
-
-## Usage Example
-
-```ts
-// entities/api/tickets.ts
-import type {
-  CreateTicketForm,
-  TicketDetail,
-  TicketFilters,
-  TicketItem,
-} from './types/ticket.types'
-
-import { useApiFactory } from '~/config/api/useApiFactory'
-
-const ticketsApi = useApiFactory<
-  TicketItem,
-  TicketFilters,
-  CreateTicketForm,
-  TicketDetail
->('/api/tickets')
-
-export default ticketsApi
-```
+- 🔍 **Поиск книг** по названию, автору или категории через Open Library API
+- 📖 **Информация о книге**: обложка, описание, год издания, издательство
+- ⚡ **Быстрая загрузка** благодаря SSR и оптимизации Nuxt
+- 📱 **Адаптивный дизайн** для всех устройств
+- 🚀 **Создано через create-nuxt-launchpad**
 
 ---
 
-## Getting Started
+## 🛠 Технологический стек
 
-1. Clone the repository.
+- [Nuxt 4](https://nuxt.com/)
+- [Vue 3](https://vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/)
+- [Open Library API](https://openlibrary.org/dev/docs/api/search)
+- [create-nuxt-launchpad](https://www.npmjs.com/package/create-nuxt-launchpad)
 
-2. Install dependencies:
+---
+
+## 📦 Установка
+
+### Клонирование репозитория
 
 ```bash
-bun install
+git clone https://github.com/KhatmullinBulat/Pereplet.git
+cd Pereplet
 ```
 
-3. Configure your Api base URL (.env).
-
-4. Start the development server:
+### Установка зависимостей
 
 ```bash
-bun run dev
+npm install
 ```
 
----
+### Запуск в режиме разработки
 
-## Contributing
+```bash
+npm run dev
+```
 
-If you have a suggestion that would make this project better, please fork the repo and create a [pull request](https://github.com/KhatmullinBulat/nuxt-launchpad/compare). You can also simply open an [issue](https://github.com/KhatmullinBulat/nuxt-launchpad/issues/new).
+## 👨‍💻 Автор
+### Bulat Khatmullin
 
-To fix a bug or enhance an existing module, follow these steps:
+GitHub: @KhatmullinBulat
 
-1. Fork the Repo
-2. Create a new branch (`git checkout -b improve-feature`)
-3. Make the appropriate changes in the files
-4. Add changes to reflect the changes made
-5. Commit your changes (`git commit -m 'Improve feature'`)
-6. Push to the branch (`git push origin improve-feature`)
-7. Create a Pull Request
+Проект: Pereplet
 
-## Inspired By
+## 🙏 Благодарности
 
-- Feature-Sliced Design
-- Nuxt official patterns
-
-[license-shield]: https://img.shields.io/github/license/unktir/js-object-clock.svg?style=flat-square
-[license-url]: https://github.com/KhatmullinBulat/nuxt-launchpad/blob/main/LICENSE
+- Open Library — за открытый API и базу данных книг
+- Nuxt Team — за превосходный фреймворк
