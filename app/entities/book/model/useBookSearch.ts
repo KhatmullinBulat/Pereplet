@@ -58,6 +58,7 @@ export function useBookSearch() {
 
   const submitSearch = async () => {
     page.value = 1
+    subject.value = undefined
     return fetchBooks()
   }
 
