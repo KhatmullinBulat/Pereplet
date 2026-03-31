@@ -54,13 +54,13 @@ useHead(() => ({
         <img
           v-if="coverUrl"
           :alt="book.title"
-          class="aspect-[3/4] h-full w-full object-cover"
+          class="aspect-3/4 h-full w-full"
           :src="coverUrl"
         >
 
         <div
           v-else
-          class="flex aspect-[3/4] items-center justify-center p-6 text-center text-sm text-slate-500"
+          class="flex aspect-3/4 items-center justify-center p-6 text-center text-sm text-slate-500"
         >
           Обложка недоступна
         </div>

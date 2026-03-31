@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { OpenLibrarySearchBook } from '../types/books.types'
 import { getOpenLibraryCoverUrl } from '#entities/book'
+import { normalizeOpenLibraryWorkId } from '../lib/openLibrary'
 
 interface Props {
   book: OpenLibrarySearchBook
@@ -11,6 +12,7 @@ const props = defineProps<Props>()
 const FALLBACK_COVER_URL = 'https://placehold.co/300x400?text=No+Cover'
 
 const coverUrl = computed(() => getOpenLibraryCoverUrl(props.book.cover_i, 'L') || FALLBACK_COVER_URL)
+const bookLink = computed(() => `/book/${normalizeOpenLibraryWorkId(props.book.key)}`)
 const isBookNew = computed(() => {
   const year = new Date().getFullYear()
   if (Number(props.book.first_publish_year) === year) {
@@ -29,11 +31,13 @@ function handleImageError(event: Event) {
 </script>
 
 <template>
-  <article
+  <NuxtLink
+    :aria-label="`Открыть книгу ${props.book.title}`"
     class="group relative w-full max-w-[265px] flex flex-col p-4 rounded-2xl bg-white border border-[#E0DED9]
            cursor-pointer transition-all duration-200
            hover:border-[#A3B18A] hover:shadow-[0_8px_24px_rgba(163,177,138,0.2)] hover:-translate-y-1
            active:translate-y-0"
+    :to="bookLink"
   >
     <div class="relative mb-4 aspect-3/4 rounded-xl overflow-hidden bg-[#F2F0EB]">
       <img
@@ -67,7 +71,8 @@ function handleImageError(event: Event) {
       </span>
     </div>
 
-    <button
+    <span
+      aria-hidden="true"
       class="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center rounded-xl
              bg-[#A3B18A] text-white opacity-0 translate-y-2
              group-hover:opacity-100 group-hover:translate-y-0
@@ -88,6 +93,6 @@ function handleImageError(event: Event) {
           stroke-width="2"
         />
       </svg>
-    </button>
-  </article>
+    </span>
+  </NuxtLink>
 </template>
