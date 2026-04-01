@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { IBookCategory } from '#entities/book/types/books.types'
+import type { IBookSubject } from '#entities/book/types/books.types'
 import { useBookSearch } from '#entities/book/model/useBookSearch'
 
 interface Props {
-  category: IBookCategory
+  subject: IBookSubject
 }
 
 const props = defineProps<Props>()
 
-const { setSubject, fetchBooks } = useBookSearch()
+const { subject: currentSubject, setSubject, fetchBooks } = useBookSearch()
 
 async function searchBySubject(subject: string) {
   setSubject(subject)
@@ -24,18 +24,19 @@ async function searchBySubject(subject: string) {
                  transition-all duration-200 cursor-pointer
                  hover:bg-white hover:border-[#A3B18A] hover:shadow-[0_4px_12px_rgba(163,177,138,0.15)] hover:-translate-y-1
                  active:translate-y-0"
-      @click="searchBySubject(props.category.key)"
+      :class="props.subject.key === currentSubject ? 'border-[#A3B18A]! bg-white shadow-[0_4px_12px_rgba(163,177,138,0.15)] -translate-y-1' : ''"
+      @click="searchBySubject(props.subject.key)"
     >
       <div class="size-18 flex items-center justify-center rounded-xl bg-white/50 group-hover:bg-[#F9FBF7] transition-colors duration-200">
         <img
-          :alt="props.category.label"
+          :alt="props.subject.label"
           class="size-12 object-contain transition-transform duration-200 group-hover:scale-110"
-          :src="props.category.image"
+          :src="props.subject.image"
         >
       </div>
 
       <p class="text-[14px] text-nowrap font-medium text-[#5D5750] group-hover:text-[#A3B18A] transition-colors duration-200">
-        {{ props.category.label }}
+        {{ props.subject.label }}
       </p>
     </button>
   </li>

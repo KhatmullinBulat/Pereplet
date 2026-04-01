@@ -1,7 +1,7 @@
-import type { IBookCategory } from '#entities/book/types/books.types'
+import type { IBookSubject } from '#entities/book/types/books.types'
 import { bookBestsellerImage, bookFantasyImage, bookFictionImage, bookHistoryImage, bookKidImage, bookNewImage, bookRecipesImage, bookRomanceImage, booksListImage } from '#shared/assets/images/categories'
 
-export const BOOK_CATEGORIES: IBookCategory[] = [
+export const BOOK_SUBJECTS: IBookSubject[] = [
   {
     label: 'Все',
     key: 'all',
@@ -24,7 +24,7 @@ export const BOOK_CATEGORIES: IBookCategory[] = [
   },
   {
     label: 'Романтика',
-    key: 'Романтика',
+    key: 'romance',
     image: bookRomanceImage,
   },
   {

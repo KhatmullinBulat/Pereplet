@@ -1,6 +1,6 @@
 import type { PaginatedParams } from '#shared/types/api.types'
 
-export interface IBookCategory {
+export interface IBookSubject {
   label: string
   key: string
   image: string

@@ -31,7 +31,14 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="container mx-auto px-3 py-6">
+  <div class="container mx-auto flex flex-col gap-6 px-3 py-6">
+    <NuxtLink
+      class="cursor-pointer hover:text-[#A3B18A]"
+      to="/"
+    >
+      Назад
+    </NuxtLink>
+
     <div
       v-if="pending"
       class="text-slate-500"
